@@ -10,7 +10,6 @@ fn.userinfo =  function (req, res, next) {
 
   connection.query(sql,function(err, result) {
     if(!err){
-      console.log(result);
       res.send(result);
     } else {
       console.log('Error');
@@ -46,12 +45,10 @@ fn.signin = function (req, res, next) {
   var sql_select = 'SELECT * FROM customer_info WHERE id=?';
 
   var
-    user_id = req.body.username,
+    user_id = req.body.userid,
     password = req.body.password;
 
   connection.query(sql_select, user_id, function(err, result) {
-    console.log(result[0].pw);
-    console.log(password);
     if (err) {
       console.log('err :' + err);
     }else {
