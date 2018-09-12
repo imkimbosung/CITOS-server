@@ -3,12 +3,7 @@ var router = express.Router();
 var mysql_dbc = require('../db/db_con')();
 var connection = mysql_dbc.init();
 var bcrypt = require('bcrypt');
-var passport = require('../funUsers/passport');
-var passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy;
 
-
-// passport.pport();
 
 var fn = {};
 fn.userinfo =  function (req, res, next) {
@@ -47,6 +42,7 @@ fn.signup = function (req, res, next) {
     });
 }
 
+/* login - passport 적용 전코드*/
 fn.signin = function (req, res, next) {
   var sql_select = 'SELECT * FROM `customer_info` WHERE `id`= ? ' ;
 
@@ -63,16 +59,12 @@ fn.signin = function (req, res, next) {
       if (result.length === 0) {
         res.json({success: false, msg: '해당 유저가 존재하지 않습니다.'})
         console.log('아이디 오류!' );
-        // return done(false, null)
       } else {
         if(!bcrypt.compareSync(password, result[0].pw)) {
           console.log('비밀번호 오류');
           return done(false, null)
           res.json({success: false, msg: '비밀번호가 일치하지 않습니다.'})
         } else {
-          // return done(null, {
-          //     'user_id': user_id,
-          //   });
           console.log('success login');
           // res.json({success: true})
           res.send('true');
