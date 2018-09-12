@@ -4,8 +4,9 @@ var QRCode = require('qrcode');
 
 var fn = {};
 fn.mkqrcode =  function (req, res, next) {
-  var  
+  var
     params = new Object();
+    params.menu = req.body.menu;
     params.price = req.body.price;
     params.userinfo = req.body.userinfo;
     qrinfo = JSON.stringify(params);

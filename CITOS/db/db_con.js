@@ -1,5 +1,6 @@
 var mysql = require('mysql');
-var config = require('../db/db_info').local;
+var config = require('../db/db_info');
+// var config = require('../db/db_info').local;
 
 module.exports = function () {
   return {
@@ -8,8 +9,7 @@ module.exports = function () {
         host: config.host,
         user: config.user,
         password: config.password,
-        database: config.database,
-        multipleStatements: config.multipleStatements
+        database: config.database
       })
     },
 

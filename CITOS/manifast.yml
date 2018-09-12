@@ -1,0 +1,8 @@
+---
+applications:
+- name: CITOS
+  memory: 1024M
+  instances: 1
+  command: npm start
+  path: .
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack

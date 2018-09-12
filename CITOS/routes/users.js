@@ -31,7 +31,7 @@ router.post('/signin', passport.authenticate('local', {
 
 // delete
 router.delete('/delete', function(req, res, next) {
-
+  res.json({});
 });
 
 
