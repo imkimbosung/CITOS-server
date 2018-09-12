@@ -16,6 +16,7 @@
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "express-session": "^1.15.6",
+    "flash": "^1.1.0",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "jquery-validation": "^1.17.0",
@@ -25,6 +26,7 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "qrcode": "^1.2.2",
+    "req-flash": "0.0.3",
     "request": "^2.88.0"
   },
   "main": "app.js",

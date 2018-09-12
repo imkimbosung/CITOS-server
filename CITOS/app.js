@@ -3,10 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy;
-var cookieSession = require('cookie-session');
+var app = express();
 var flash = require('connect-flash');
+var session = require('express-session'); //세션연결
+var passport = require('passport');
+var passportConfig = require('./funUsers/passport');
 
 
 /* router */
@@ -16,29 +17,25 @@ var cardRouter = require('./routes/card');
 var adminRouter = require('./routes/admin');
 var qrcodeRouter = require('./routes/qrcode_charge/qrcode');
 
-
-var app = express();
-
 var router = express.Router();
 var mysql_dbc = require('./db/db_con')();
 var connection = mysql_dbc.init();
 var bcrypt = require('bcrypt');
 
-app.use(flash());
-/* middleware */
-app.use(cookieSession({
-  keys: ['node_yun'],
-  cookie: {
-    maxAge: 1000 * 60 * 60 // 유효기간 1시간
-  }
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+/* session middleware */
+app.use(session({ cookie: { maxAge: 60000 },
+                  secret: '1q2w3e',
+                  resave: false,
+                  saveUninitialized: false}));
+app.use(passport.initialize()); // passport 구동
+app.use(flash());
+app.use(passport.session()); // 세션 연결
+passportConfig();
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -53,6 +50,7 @@ app.use('/users', usersRouter);
 app.use('/card', cardRouter);
 app.use('/admin', adminRouter);
 app.use('/qrcode', qrcodeRouter);
+
 
 /* catch 404 and forward to error handler */
 app.use(function(req, res, next) {
