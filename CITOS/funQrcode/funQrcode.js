@@ -4,12 +4,13 @@ var QRCode = require('qrcode');
 
 var fn = {};
 fn.mkqrcode =  function (req, res, next) {
-  var
-    price = req.body.price,
-    userinfo = req.body.userinfo,
-    params = [price,userinfo];
-    console.log(params);
-QRCode.toDataURL(params, function(err, url){
+  var  
+    params = new Object();
+    params.price = req.body.price;
+    params.userinfo = req.body.userinfo;
+    qrinfo = JSON.stringify(params);
+    console.log(qrinfo);
+QRCode.toDataURL(qrinfo, function(err, url){
   if(err){
     console.log(err);
     res.send(err);
