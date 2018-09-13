@@ -1,0 +1,58 @@
+
++ (안녕|하이|반가워)
+- 반가워요{weight=10}
+- 도와드릴게있나요?{weight=10}
+- 뭐 도와드릴까요?{weight=10}
+- 도움이 필요한가요?{weight=10}
+
++ ㅋ*
+- ㅋㅋㅋ :)
+
++ *추천*
+- 오늘 추천 상품은 {random}사과|오렌지|고등어|우유|상추|양파|통닭{/random} 입니다.
+
++ 오늘 * (좋아?|괜찮아?|좋아|괜찮아|괜찮음?|괜찮음) 
+- 오늘은 <star>를 추천해요.{weight=10}
+- 오늘은 <star>가 괜찮아요.{weight=10}
+
++ * (어때?|어때|괜찮아|괜찮?|ㄱㅊ|괜찮음?|괜찮음)
+- <star>은 저렴해요. 추천해요.{weight=10}
+- <star>은 별로에요. 다른 건 어때요?{weight=10}
+
++ *(는|은) 어때?
+- <star>은 저렴해요. 추천해요.{weight=10}
+- <star>은 별로에요. 다른 건 어때요?{weight=10}
+
++ * (삼|산다|살게|살게요|살거여|살거야)
+- 결제번호 입력해주세요.
+
++ (구글|google|그글|googl|goo) * 
+- Google Search: <call>google <star></call>{weight=10}
+
+// Hereis the Google search object. We'll cover objects in more
+// depth later in the tutorial.
+> object google javascript
+	var query = escape(args.join(" "));
+	return "http://www.google.com/search?q=" + query ;
+< object
+
+
++ (일주일 전|한주전|한 주전|저번주|저번 주) * (가격 알려줘|정보|가격)
+- <call>getItemPriceWeekAgo <star2></call>
+
++ * (가격|얼마야?|얼마|정보)
+- <call>getItemPrice <star></call>
+
++ * 가격 알려줘
+- <call>getItemPrice <star></call>
+
+
++ 시장 정보 (보여줘|알려줘)
+- <call>getMarket</call>
+
++ *
+- 다시 한번 말씀해주시겠어요?
+- 의도 파악이 안되네요...{weight=10}
+- 전통시장 추천 및 결제 관련 답변 밖에 못해요.{weight=10}
+
+

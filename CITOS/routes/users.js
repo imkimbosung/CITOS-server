@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var infor = require('../funUsers/funUsers');
+var infor = require('../function/funUsers/funUsers');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var cookieSession = require('cookie-session');
@@ -19,7 +19,7 @@ router.post('/signup', function(req,res,next){
 });
 
 router.post('/signin', passport.authenticate('local', {
-  successRedirect: '/allInfo',
+  successRedirect: '/users/allInfo',
 
   failureRedirect: '/',
 

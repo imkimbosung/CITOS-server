@@ -27,7 +27,9 @@
     "passport-local": "^1.0.0",
     "qrcode": "^1.2.2",
     "req-flash": "0.0.3",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "rivescript": "^2.0.0-alpha.6",
+    "xml2json": "^0.11.2"
   },
   "main": "app.js",
   "devDependencies": {},

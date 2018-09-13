@@ -1,0 +1,245 @@
+[
+	{
+		"item": "보리쌀",
+		"unit": "통보리 1kg",
+		"one_year_ago": "3650",
+		"one_week_age": "4080",
+		"week": "4083.3333333333",
+		"percent_of_year": "11.87%",
+		"percent_of_week": "0.08%"
+	},
+	{
+		"item": "무",
+		"unit": "재래종 1kg 1개",
+		"one_year_ago": "2830",
+		"one_week_age": "2500",
+		"week": "3166.6666666667",
+		"percent_of_year": "11.90%",
+		"percent_of_week": "26.67%"
+	},
+	{
+		"item": "배추",
+		"unit": "통배추 1kg",
+		"one_year_ago": "2890",
+		"one_week_age": "5000",
+		"week": "5500",
+		"percent_of_year": "90.31%",
+		"percent_of_week": "10.00%"
+	},
+	{
+		"item": "상추",
+		"unit": "잎상추 100g",
+		"one_year_ago": "1230",
+		"one_week_age": "1930",
+		"week": "1933.3333333333",
+		"percent_of_year": "57.18%",
+		"percent_of_week": "0.17%"
+	},
+	{
+		"item": "달걀",
+		"unit": "60g 이상 10개",
+		"one_year_ago": "3000",
+		"one_week_age": "2320",
+		"week": "2322.3333333333",
+		"percent_of_year": "-22.59%",
+		"percent_of_week": "0.10%"
+	},
+	{
+		"item": "고등어",
+		"unit": "30cm정도 1마리",
+		"one_year_ago": "4110",
+		"one_week_age": "3080",
+		"week": "3555.6666666667",
+		"percent_of_year": "-13.49%",
+		"percent_of_week": "15.44%"
+	},
+	{
+		"item": "마른멸치",
+		"unit": "소멸 1kg",
+		"one_year_ago": "23890",
+		"one_week_age": "24000",
+		"week": "24333.333333333",
+		"percent_of_year": "1.86%",
+		"percent_of_week": "1.39%"
+	},
+	{
+		"item": "설탕",
+		"unit": "제일제당 정백당 1포 1kg",
+		"one_year_ago": "2050",
+		"one_week_age": "2080",
+		"week": "2083.3333333333",
+		"percent_of_year": "1.63%",
+		"percent_of_week": "0.16%"
+	},
+	{
+		"item": "라면",
+		"unit": "안성탕면 1개 1.25kg",
+		"one_year_ago": "600",
+		"one_week_age": "680",
+		"week": "683.33333333333",
+		"percent_of_year": "13.89%",
+		"percent_of_week": "0.49%"
+	},
+	{
+		"item": "우유",
+		"unit": "흰우유 종이팩 200ml(서울우유)",
+		"one_year_ago": "850",
+		"one_week_age": "840",
+		"week": "843.33333333333",
+		"percent_of_year": "-0.78%",
+		"percent_of_week": "0.40%"
+	},
+	{
+		"item": "콜라",
+		"unit": "PET용기 코카콜라 1.5l 1병",
+		"one_year_ago": "2470",
+		"one_week_age": "2830",
+		"week": "2833.3333333333",
+		"percent_of_year": "14.71%",
+		"percent_of_week": "0.12%"
+	},
+	{
+		"item": "등유",
+		"unit": "보통 1L",
+		"one_year_ago": "960",
+		"one_week_age": "1050",
+		"week": "1053.3333333333",
+		"percent_of_year": "9.72%",
+		"percent_of_week": "0.32%"
+	},
+	{
+		"item": "콩",
+		"unit": "백태 1kg",
+		"one_year_ago": "6890",
+		"one_week_age": "9190",
+		"week": "8952.3333333333",
+		"percent_of_year": "29.93%",
+		"percent_of_week": "-2.59%"
+	},
+	{
+		"item": "콩나물",
+		"unit": "길이 10 ~ 12cm 100g",
+		"one_year_ago": "310",
+		"one_week_age": "330",
+		"week": "326.66666666667",
+		"percent_of_year": "5.38%",
+		"percent_of_week": "-1.01%"
+	},
+	{
+		"item": "풋고추",
+		"unit": "풋고추 100g",
+		"one_year_ago": "1000",
+		"one_week_age": "21670",
+		"week": "15333.333333333",
+		"percent_of_year": "1433.33%",
+		"percent_of_week": "-29.24%"
+	},
+	{
+		"item": "양파",
+		"unit": "망에 든 것 1kg",
+		"one_year_ago": "1830",
+		"one_week_age": "2040",
+		"week": "2037",
+		"percent_of_year": "11.31%",
+		"percent_of_week": "-0.15%"
+	},
+	{
+		"item": "파",
+		"unit": "대파 껍질 깐 것 1kg",
+		"one_year_ago": "2500",
+		"one_week_age": "3670",
+		"week": "3466.6666666667",
+		"percent_of_year": "38.67%",
+		"percent_of_week": "-5.54%"
+	},
+	{
+		"item": "사과",
+		"unit": "개당 300g정도 10개",
+		"one_year_ago": "14170",
+		"one_week_age": "14530",
+		"week": "12200",
+		"percent_of_year": "-13.90%",
+		"percent_of_week": "-16.04%"
+	},
+	{
+		"item": "배",
+		"unit": "개당 600g정도 10개",
+		"one_year_ago": "17230",
+		"one_week_age": "19000",
+		"week": "18763.333333333",
+		"percent_of_year": "8.90%",
+		"percent_of_week": "-1.25%"
+	},
+	{
+		"item": "밀감",
+		"unit": "개당 100g정도 10개",
+		"one_year_ago": "2330",
+		"one_week_age": "8140",
+		"week": "7477.6666666667",
+		"percent_of_year": "220.93%",
+		"percent_of_week": "-8.14%"
+	},
+	{
+		"item": "쇠고기",
+		"unit": "등심 500g 1등급",
+		"one_year_ago": "35120",
+		"one_week_age": "40170",
+		"week": "40000",
+		"percent_of_year": "13.90%",
+		"percent_of_week": "-0.42%"
+	},
+	{
+		"item": "닭고기",
+		"unit": "육계(목",
+		"one_year_ago": "발",
+		"one_week_age": "털내장 제거) 1kg",
+		"week": "6000",
+		"percent_of_year": "6170",
+		"percent_of_week": "6166.6666666667"
+	},
+	{
+		"item": "조기",
+		"unit": "25cm정도 1마리",
+		"one_year_ago": "3690",
+		"one_week_age": "6230",
+		"week": "5900",
+		"percent_of_year": "59.89%",
+		"percent_of_week": "-5.30%"
+	},
+	{
+		"item": "동태",
+		"unit": "냉동 40cm정도 1마리",
+		"one_year_ago": "5000",
+		"one_week_age": "4170",
+		"week": "4166.6666666667",
+		"percent_of_year": "-16.67%",
+		"percent_of_week": "-0.08%"
+	},
+	{
+		"item": "밀가루",
+		"unit": "중력 1급 2.7kg 1포",
+		"one_year_ago": "4010",
+		"one_week_age": "3820",
+		"week": "3816.6666666667",
+		"percent_of_year": "-4.82%",
+		"percent_of_week": "-0.09%"
+	},
+	{
+		"item": "휘발유",
+		"unit": "무연휘발유 1L",
+		"one_year_ago": "1520",
+		"one_week_age": "1670",
+		"week": "1665.3333333333",
+		"percent_of_year": "9.56%",
+		"percent_of_week": "-0.28%"
+	},
+	{
+		"item": "경유",
+		"unit": "보통 1L",
+		"one_year_ago": "1310",
+		"one_week_age": "1470",
+		"week": "1465.3333333333",
+		"percent_of_year": "11.86%",
+		"percent_of_week": "-0.32%"
+	}
+]
