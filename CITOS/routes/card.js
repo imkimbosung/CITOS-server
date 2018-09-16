@@ -3,8 +3,6 @@ var router = express.Router();
 var mysql_dbc = require('../db/db_con')();
 var connection = mysql_dbc.init();
 
-
-
 // /card
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');

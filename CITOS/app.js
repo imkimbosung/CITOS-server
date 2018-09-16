@@ -32,9 +32,10 @@ app.set('view engine', 'jade');
 app.use(session({ cookie: { maxAge: 60000 },
                   secret: '1q2w3e',
                   resave: false,
-                  saveUninitialized: false}));
-app.use(passport.initialize()); // passport 구동
+                  saveUninitialized: true}));
+
 app.use(flash());
+app.use(passport.initialize()); // passport 구동
 app.use(passport.session()); // 세션 연결
 passportConfig();
 

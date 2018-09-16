@@ -10,14 +10,15 @@ fn.mkqrcode =  function (req, res, next) {
     // params.price = req.body.price;
     // params.userinfo = req.body.userinfo;
     qrinfo = JSON.stringify(params);
-    console.log(qrinfo);
+    console.log('qrcode 정보 : '+ qrinfo);
 QRCode.toDataURL(qrinfo, function(err, url){
   if(err){
     console.log(err);
     res.send(err);
   }else{
     console.log(url);
-    res.send(url);
+    // res.send(url);
+    res.json({'QRcode' : url});
   }
 });
 }
