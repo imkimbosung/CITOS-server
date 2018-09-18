@@ -21,8 +21,8 @@ if (process.env.VCAP_SERVICES) {
     user     : 'devel',
     password : 'devel',
     database : 'citos',
-    // multipleStatements : true
-  
+    multipleStatements : true
+
 }
 }
   return config;

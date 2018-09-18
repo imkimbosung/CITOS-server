@@ -19,6 +19,7 @@ fn.userinfo =  function (req, res, next) {
   });
 }
 
+
 fn.signup = function (req, res, next) {
   var sql_insert = 'INSERT INTO customer_info (id, pw, name, age, sex) VALUES(?,?,?,?,?)';
   const saltRounds = 5;
@@ -29,15 +30,15 @@ fn.signup = function (req, res, next) {
    params = [new_id, new_pw_hash , req.body.newname ,req.body.newage, req.body.newsex];
 
     connection.query(sql_insert,params, function (err, result) {
-      console.log(new_pw_hash);
-      if(err.errno === 1062){
-        res.send('ID 중복입니다.');
+      // console.log(new_pw_hash);
+      if(err.errno == 1062){
+        res.json({success: false, msg : 'ID repetition'});
       }
       else if(err){
-        console.log(err)
+        res.json({success: false, msg: err});
       }
       else{
-            res.send('회원가입 완료!');
+        res.json({success: true, msg: 'signup success'});
       }
     });
 }

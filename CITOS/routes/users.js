@@ -15,13 +15,10 @@ router.get('/allInfo', function(req, res, next) {
 // sign up
 router.post('/signup', function(req,res,next){
   infor.signup(req,res,next);
-  res.send('signup pages');
 });
 
 router.post('/signin', passport.authenticate('local',{failureRedirect: '/users/signin', failureFlash: true}
 ),function(req, res){
-  // res.redirect('/users/allInfo');
-  // res.json({'signinresult':true});
   console.log('ID : '+ req.body.username);
   console.log('******* signin *******');
   res.send('true');
