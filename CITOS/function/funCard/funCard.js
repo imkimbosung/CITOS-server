@@ -8,27 +8,36 @@ var fncard = {}
 
 fncard.cardinfo = function (req, res, next) {
   var sql_insert = 'INSERT INTO card_info (id,cardbank,cardnum,YY,MM) VALUES(?,?,?,?,?)';
+  var sql_check = 'SELECT * FROM `customer_info` WHERE `id`= ? '
 
   var
    new_id = req.body.userid,
    params = [new_id, req.body.cardbank, req.body.cardnum ,req.body.year, req.body.month];
 
-   cardnum_length = 16;
+   connection.query(sql_check, new_id, function (err, result) {
+     if (err) {
+         console.log('err :' + err);
+         return res.json({success: false, msg: err});
+       }else {
+         if (result.length === 0) {
+           console.log('아이디 오류!' );
+           return res.json({success: false, msg: 'This user does not exist.'});
+         }
+       }
+       console.log('id check - pass');
 
-   if(new_id == ""){
-     console.log('err : don\'t send your userid'); return res.json({'err' : 'don\'t send your userid'});
-   }
+       connection.query(sql_insert,params, function (err, result) {
+         // console.log(err);
+         if(err){
+           console.log('err : ' + err);
+           res.json({success: false, msg : 'don\'t send your information'});
+         }else{
+           console.log('cardinfo_update_success');
+           res.json({success: true, msg : 'cardinfo update success'});
+         }
+       });
+   });
 
-    connection.query(sql_insert,params, function (err, result) {
-      // console.log(err);
-      if(err){
-        console.log(err);
-        res.json({'err' : 'don\'t send your information'});
-      }else{
-        console.log('cardinfo_update_success');
-        res.json({'function' : 'cardinfo','result' : 'true'});
-      }
-    });
 }
 
 module.exports = fncard;
