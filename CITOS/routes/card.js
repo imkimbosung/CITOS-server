@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var mysql_dbc = require('../db/db_con')();
-var connection = mysql_dbc.init();
+var infor = require('../function/funCard/funCard');
+
 
 // /card
 router.get('/', function(req, res, next) {
@@ -15,7 +15,7 @@ router.get('/:id', function(req,res,next){
 
 // 카드 정보 등록
 router.post('/add', function(req,res,next){
-  res.json({});
+  infor.cardinfo(req,res,next);
 });
 
 // 카드 정보 삭제
