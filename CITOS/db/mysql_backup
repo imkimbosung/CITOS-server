@@ -1,0 +1,129 @@
+-- MySQL dump 10.13  Distrib 5.7.22, for Win64 (x86_64)
+--
+-- Host: localhost    Database: citos
+-- ------------------------------------------------------
+-- Server version	5.7.22
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES UTF8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `buy_info`
+--
+
+DROP TABLE IF EXISTS `buy_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `buy_info` (
+  `id` varchar(16) NOT NULL,
+  `menu` varchar(16) NOT NULL,
+  `price` int(10) NOT NULL,
+  `buytime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `cardnum` int(16) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `buy_info`
+--
+
+LOCK TABLES `buy_info` WRITE;
+/*!40000 ALTER TABLE `buy_info` DISABLE KEYS */;
+/*!40000 ALTER TABLE `buy_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `card_info`
+--
+
+DROP TABLE IF EXISTS `card_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `card_info` (
+  `id` varchar(16) NOT NULL,
+  `cardbank` int(3) NOT NULL,
+  `cardnum` varchar(16) NOT NULL,
+  `YY` int(2) NOT NULL,
+  `MM` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `card_info`
+--
+
+LOCK TABLES `card_info` WRITE;
+/*!40000 ALTER TABLE `card_info` DISABLE KEYS */;
+INSERT INTO `card_info` VALUES ('testid',90,'1234123456785678',21,2),('devel',90,'1234123412341234',21,7),('wonone',3,'123456789125',12,12),('d',90,'1234123412341234',21,7),('d',90,'1234123412341234',21,7),('',90,'1234123412341234',21,7),('',90,'1234123412341234',21,7),('wonone',2,'1891891891891892',12,12);
+/*!40000 ALTER TABLE `card_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `customer_info`
+--
+
+DROP TABLE IF EXISTS `customer_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `customer_info` (
+  `id` varchar(16) NOT NULL,
+  `pw` varchar(60) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `age` int(3) DEFAULT NULL,
+  `sex` varchar(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customer_info`
+--
+
+LOCK TABLES `customer_info` WRITE;
+/*!40000 ALTER TABLE `customer_info` DISABLE KEYS */;
+INSERT INTO `customer_info` VALUES ('asdf','$2b$05$xAB.LuRCPh8cN8l.DU/w/OZtsCgAektDRZnQfV/IyLxceSaUZy8Em','jeun',28,'men'),('devel','1234qwer','채재윤',24,'남자'),('testid','1q2w3e','김보성',24,'남자'),('wonone','$2b$05$RWAXZYM3/wNgWDnNnTcOReE0YOPOD4742pnmcCQp3HFu512prAL/S','최원혁',24,'남자');
+/*!40000 ALTER TABLE `customer_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `qrcode_info`
+--
+
+DROP TABLE IF EXISTS `qrcode_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `qrcode_info` (
+  `menu` varchar(16) NOT NULL,
+  `qrcode_id` varchar(255) NOT NULL,
+  PRIMARY KEY (`menu`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `qrcode_info`
+--
+
+LOCK TABLES `qrcode_info` WRITE;
+/*!40000 ALTER TABLE `qrcode_info` DISABLE KEYS */;
+/*!40000 ALTER TABLE `qrcode_info` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-09-18 17:35:25
