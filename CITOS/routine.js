@@ -1,21 +1,29 @@
 var routine = {};
 var request = require('request');
 
-var getDog = function(location, callback) {
-	request.get({
-		url: "https://dog.ceo/api/breeds/image/random",
-		json: true
-	}, function(error, response) {
-		if (response.statusCode !== 200) {
-			console.log(response.body.message);
-			callback.call(this, response.body.message);
-		} else {
-			callback.call(this, null, response.body.message);
-		}
-	});
-};
-
 const ulsanPrice = require('./data/ulsan_0831.json');
+const menu_info = require('./data/menu_info.json');
+//=====================================================================
+var getMenu = function (args, callback) {
+	console.log('getMenu' + args);
+	// console.log(menu_info);
+		var search  = menu_info.filter((data)=>{
+			if(data.menu == args){
+				return data;
+			}else if(data.number == args){
+				return data;
+			}
+		});
+		if(search.length != 1){
+			var price = "물품을 찾지 못했어요."
+		}else{
+			var price = search[0].menu + " 의 가격은 " + search[0].price + " 원입니다.";
+		}
+		console.log(search)
+			callback.call(this, null, price);
+
+}
+//=====================================================================
 var getItemPrice = function(args, callback){
 	console.log("getItemPrice" + args);
 	// console.log(ulsanPrice);
@@ -82,9 +90,7 @@ var getMarket = function(args, callback){
 	});
 }
 
-
-
-routine.getDog = getDog;
+routine.getMenu = getMenu;
 routine.getItemPrice = getItemPrice;
 routine.getMarket = getMarket;
 routine.getItemPriceWeekAgo = getItemPriceWeekAgo;

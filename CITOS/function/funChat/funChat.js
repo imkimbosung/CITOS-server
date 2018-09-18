@@ -7,10 +7,46 @@ var bot = new RiveScript({utf8: true});
 bot.unicodePunctuation = new RegExp(/[.,!?;:]/g);
 
 bot.loadDirectory("./brain").then(success_handler).catch(error_handler);
+var R = require('../../routine.js');
 
 function success_handler() {
   bot.sortReplies();
 }
+
+function returnBotPromise(method, data_type, args){
+	return new bot.Promise(function(resolve, reject) {
+		if(data_type==='text'){
+			console.log(args);
+			R[method](args.join(' '), returnText);
+		}else{
+			R[method](args.join(' '), returnImg);
+		}
+		// R.getItemPrice(args.join(' '), returnText);
+		function returnText(error, data){
+			if(error) {
+				reject(error);
+			} else {
+				const answer = JSON.stringify({'type' : 'text' , 'data' : data});
+				resolve(answer);
+			}
+		};
+
+		function returnImg(error, data){
+			if(error) {
+				reject(error);
+			} else {
+				const answer = JSON.stringify({'type' : 'text' , 'data' : data});
+				resolve(answer);
+			}
+		};
+
+	});
+
+}
+
+bot.setSubroutine("getMenu", function (rs, args)  {
+	return returnBotPromise("getMenu", "text", args);
+});
 
 var chat = {};
 
@@ -30,7 +66,7 @@ chat.oneChat =  function (req, res) {
   	var username = req.body.username;
   	var message  = req.body.message;
   	var vars     = req.body.vars;
-    console.log(username);
+    console.log('message : ' + req.body.message);
   	// Make sure username and message are included.
   	if (typeof(username) === "undefined" || typeof(message) === "undefined") {
   		return error(res, "username and message are required keys");
@@ -48,7 +84,7 @@ chat.oneChat =  function (req, res) {
   	// Get a reply from the bot.
   	bot.reply(username, message, this).then(function(reply) {
   		// Get all the user's vars back out of the bot to include in the response.
-console.log("TEST111");
+
       var answer = {}
   		answer.status = "ok";
   		answer.vars = vars;
@@ -56,19 +92,15 @@ console.log("TEST111");
   		vars = bot.getUservars(username);
   		console.log(isJSON(reply));
   		if(isJSON(reply)){
-        console.log("TEST");
   			var body = JSON.parse(reply);
   			console.log(JSON.stringify(body));
 
   			answer.type = body.type;
   			answer.reply = body.data;
   		}else{
-  			console.log("TEST2");
   			var body = {'type' : 'text' , 'data' : reply};
   			answer.type = 'text';
   			answer.reply = body.data;
-  			console.log(answer);
-
   		}
   		console.log(answer);
   		// Send the JSON response.
