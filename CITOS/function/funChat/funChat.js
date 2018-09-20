@@ -5,6 +5,7 @@ var RiveScript = require("rivescript");
 var bot = new RiveScript({utf8: true});
 
 bot.unicodePunctuation = new RegExp(/[.,!?;:]/g);
+// bot.unicodePunctuation = new RegExp(/[.,!?;:|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g);
 
 bot.loadDirectory("./brain").then(success_handler).catch(error_handler);
 var R = require('../../routine.js');
@@ -44,6 +45,7 @@ function returnBotPromise(method, data_type, args){
 
 }
 
+// 연동되는 파일 안의 function 찾기.
 bot.setSubroutine("getMenu", function (rs, args)  {
 	return returnBotPromise("getMenu", "text", args);
 });
@@ -84,7 +86,7 @@ chat.oneChat =  function (req, res) {
   	// Get a reply from the bot.
   	bot.reply(username, message, this).then(function(reply) {
   		// Get all the user's vars back out of the bot to include in the response.
-
+      console.log(' reply :: ' + reply);
       var answer = {}
   		answer.status = "ok";
   		answer.vars = vars;

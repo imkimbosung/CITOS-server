@@ -22,6 +22,7 @@ fn.userinfo =  function (req, res, next) {
 
 fn.signup = function (req, res, next) {
   var sql_insert = 'INSERT INTO customer_info (id, pw, name, age, sex) VALUES(?,?,?,?,?)';
+  var sql_check = 'SELECT * FROM `customer_info` WHERE `id`= ? '
   const saltRounds = 5;
 
   var
@@ -29,18 +30,30 @@ fn.signup = function (req, res, next) {
    new_pw_hash = bcrypt.hashSync(req.body.newpw, saltRounds),
    params = [new_id, new_pw_hash , req.body.newname ,req.body.newage, req.body.newsex];
 
+
+   connection.query(sql_check, new_id, function (err, result) {
+     if (err) {
+         console.log('err :' + err);
+         return res.json({success: false, msg: err});
+       }else {
+         if (result.length != 0) {
+           console.log('아이디 중복!' );
+           return res.json({success: false, msg: '아이디 중복입니다.'});
+         }
+       }
+       console.log('id check - pass');
+
     connection.query(sql_insert,params, function (err, result) {
       // console.log(new_pw_hash);
-      if(err.errno == 1062){
-        res.json({success: false, msg : 'ID repetition'});
-      }
-      else if(err){
+     if(err){
+       console.log(err);
         res.json({success: false, msg: err});
       }
       else{
         res.json({success: true, msg: 'signup success'});
       }
     });
+  });
 }
 
 /* login - passport 적용 전 코드*/
