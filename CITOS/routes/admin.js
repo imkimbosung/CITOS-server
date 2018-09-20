@@ -10,27 +10,27 @@ router.get('/', function(req, res, next) {
 
 // 고객 정보 보여주기
 router.get('/ctinfor', function(req,res,next){
-res.send('test');
+res.json({success: false, msg: '아직 구현하지 않음.'});
 });
 
 // 메뉴 조회
 router.get('/menu', function(req,res,next){
-res.send('test');
+res.json({success: false, msg: '아직 구현하지 않음.'});
 });
 
 // 메뉴 추가
 router.post('/menu/add', function(req,res,next){
-res.send('test');
+res.json({success: false, msg: '아직 구현하지 않음.'});
 });
 
 // 메뉴 삭제
 router.delete('/menu/delete', function(req, res, next){
-res.send('test');
+res.json({success: false, msg: '아직 구현하지 않음.'});
 });
 
 // 나이, 연령별 선호 메뉴 조회
 router.get('/menu/salesrd', function(req, res, next){
-res.send('test');
+res.json({success: false, msg: '아직 구현하지 않음.'});
 });
 
 module.exports = router;

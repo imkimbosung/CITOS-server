@@ -21,17 +21,17 @@ router.post('/signin', passport.authenticate('local',{failureRedirect: '/users/s
 ),function(req, res){
   console.log('ID : '+ req.body.username);
   console.log('******* signin *******');
-  res.send('true');
+  res.json({success: true, msg: 'signin success'});
 });
 // 로그인 false 시 값 보내주는곳
 router.get('/signin', function (req,res) {
-  res.send('false');
+  res.json({success: false, msg: 'signin false'});
 });
 
 
 // delete
 router.delete('/delete', function(req, res, next) {
-  res.json({});
+res.json({success: false, msg: '아직 구현하지 않음.'});
 });
 
 
