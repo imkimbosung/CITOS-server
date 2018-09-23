@@ -30,7 +30,7 @@ app.set('view engine', 'jade');
 
 /* session middleware */
 app.use(session({ cookie: { maxAge: 60000 },
-                  secret: '1q2w3e',
+                  secret: 'keyboard cat',
                   resave: false,
                   saveUninitialized: true}));
 
