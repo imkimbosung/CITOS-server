@@ -8,9 +8,9 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-// 카드 정보 조회
-router.get('/:id', function(req,res,next){
-  res.json({success: false, msg: '아직 구현하지 않음.'});
+// 카드 정보 전송
+router.post('/cardinfo', function(req,res,next){
+  infor.cardsend(req,res,next);
 });
 
 // 카드 정보 등록

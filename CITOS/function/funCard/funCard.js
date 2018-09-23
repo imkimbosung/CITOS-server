@@ -6,6 +6,7 @@ var bcrypt = require('bcrypt');
 
 var fncard = {}
 
+// 카드정보 등록
 fncard.cardinfo = function (req, res, next) {
   var sql_insert = 'INSERT INTO card_info (id,cardbank,cardnum,YY,MM) VALUES(?,?,?,?,?)';
   var sql_check = 'SELECT * FROM `customer_info` WHERE `id`= ? '
@@ -37,6 +38,28 @@ fncard.cardinfo = function (req, res, next) {
          }
        });
    });
+
+}
+
+// 카드정보 전송.
+fncard.cardsend = function (req, res, next) {
+  var sql_select = 'SELECT * FROM card_info WHERE id = ? ';
+
+  var check_id = req.body.userid;
+
+  connection.query(sql_select, check_id,function (err, result) {
+    if(err){
+      console.log('err : ' + err);
+      res.json({success: false, msg : 'don\'t send your information'});
+    }else if(result.length === 0){
+      res.json({success:false, msg : 'This user does not exist.'});
+    }
+    else{
+      console.log('cardsend_transport_success');
+      res.json({success: true, info : result[0].cardnum});
+    }
+
+  });
 
 }
 
