@@ -38,13 +38,17 @@ QRCode.toDataURL(qrinfo, function(err, url){
 
 // Save billing information
 fn.qrbill = function (req, res, next) {
-  var sql_insert = 'INSERT INTO buy_info (id,menu,price,buytime,cardnum) VALUES(?,?,?,?,?)';
-  var sql_check = 'SELECT * FROM `customer_info` WHERE `id`= ? '
+  var sql_insert = 'INSERT INTO buy_info (id,menu,price,buytime,cardnum) VALUES(?,?,?,?,?)'
+  var sql_check = 'SELECT * FROM card_info WHERE id = ? '
+
 // buytime은 null주면 db에서 자동 시간 저장됨.
   var
-   new_id = req.body.userid,
-   params = [new_id, req.body.menu, req.body.price ,null,req.body.cardnum];
-
+   new_id = req.body.userid;
+   console.log(req.body.menu);
+   if (!Array.isArray(req.body.menu)){new_menu = req.body.menu;}
+   // if (req.body.menu.length == 0){new_menu = req.body.menu;}
+   else{ new_menu = req.body.menu.join(', '); }
+  
 // confirm ID
    connection.query(sql_check, new_id, function (err, result) {
      if (err) {
@@ -57,9 +61,11 @@ fn.qrbill = function (req, res, next) {
          }
        }
        console.log('id check - pass');
-// uploading
-       connection.query(sql_insert,params, function (err, result) {
 
+// uploading
+
+    var params = [new_id, new_menu, req.body.price ,null,result[0].cardnum];
+       connection.query(sql_insert,params, function (err, result) {
          if(err){
            console.log(err);
            res.json({success: false, msg : err});
@@ -70,9 +76,6 @@ fn.qrbill = function (req, res, next) {
          }
        });
    });
-
-
-
 }
 
 module.exports = fn;
