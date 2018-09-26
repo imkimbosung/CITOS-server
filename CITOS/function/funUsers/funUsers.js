@@ -50,6 +50,7 @@ fn.signup = function (req, res, next) {
         res.json({success: false, msg: err});
       }
       else{
+        console.log('새로운 아이디가 생성되었습니다. ==> ' + new_id);
         res.json({success: true, msg: 'signup success'});
       }
     });
