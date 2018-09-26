@@ -15,7 +15,7 @@ var getMenu = function (args, callback) {
 			}
 		});
 		if(search.length != 1){
-			var price = "물품을 찾지 못했어요."
+			var price = "해당 제품은 현재 판매중이지 않습니다."
 		}else{
 			var price = search[0].menu + " 의 가격은 " + search[0].price + " 원입니다.";
 		}
