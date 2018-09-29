@@ -8,12 +8,12 @@ var fncard = {}
 
 // 카드정보 등록
 fncard.cardinfo = function (req, res, next) {
-  var sql_insert = 'INSERT INTO card_info (id,cardbank,cardnum,YY,MM) VALUES(?,?,?,?,?)';
+  var sql_insert = 'INSERT INTO card_info (id,cardpw,cardnum,MMYY,CVV) VALUES(?,?,?,?,?)';
   var sql_check = 'SELECT * FROM `customer_info` WHERE `id`= ? ';
 
   var
    new_id = req.body.userid,
-   params = [new_id, req.body.cardbank, req.body.cardnum ,req.body.year, req.body.month];
+   params = [new_id, req.body.cardpw, req.body.cardnum ,req.body.mmyy, req.body.cvv];
 
    connection.query(sql_check, new_id, function (err, result) {
      if (err) {

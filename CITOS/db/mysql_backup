@@ -50,10 +50,10 @@ DROP TABLE IF EXISTS `card_info`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `card_info` (
   `id` varchar(16) NOT NULL,
-  `cardbank` int(3) NOT NULL,
+  `cardpw` varchar(4) NOT NULL,
   `cardnum` varchar(16) NOT NULL,
-  `YY` int(2) NOT NULL,
-  `MM` int(2) NOT NULL
+  `MMYY` int(4) NOT NULL,
+  `CVV` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
