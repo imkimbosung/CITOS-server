@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/chatBot', function(req, res) {
-  chat.oneChat(req, res);
+  chat.oneChat(req, res);  
 });
 
 
