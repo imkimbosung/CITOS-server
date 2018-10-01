@@ -43,11 +43,11 @@ fn.qrbill = function (req, res, next) {
 
 // buytime은 null주면 db에서 자동 시간 저장됨.
   var
-   new_id = req.body.userid;
-   console.log(req.body);
-   if (!Array.isArray(req.body.info.menu)){new_menu = req.body.info.menu;}
+   new_id = req.body.info[0].Id[0][0];
+
+   if (!Array.isArray(req.body.info[0].Menu)){new_menu = req.body.info[0].Menu;}
    // if (req.body.menu.length == 0){new_menu = req.body.menu;}
-   else{ new_menu = req.body.info.menu.join(', '); }
+   else{ new_menu = req.body.info[0].Menu.join(', '); }
 
 // confirm ID
    connection.query(sql_check, new_id, function (err, result) {
@@ -63,12 +63,11 @@ fn.qrbill = function (req, res, next) {
        console.log('id check - pass');
 
 // check the card password
-    if(result[0].cardpw == req.body.Cardpassword){
+    if(result[0].cardpw == req.body.Costpassword){
       console.log('card check - pass');
-      res.json({success : true, msg : 'Confirm card number'});
-      
+
 // uploading bill information
-      var params = [new_id, new_menu, req.body.info.price ,null,result[0].cardnum];
+      var params = [new_id, new_menu, req.body.info[0].Price,null,result[0].cardnum];
          connection.query(sql_insert,params, function (err, result) {
            if(err){
              console.log(err);
