@@ -24,10 +24,10 @@ DROP TABLE IF EXISTS `buy_info`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `buy_info` (
   `id` varchar(16) NOT NULL,
-  `menu` varchar(16) NOT NULL,
+  `menu` varchar(255) NOT NULL,
   `price` int(10) NOT NULL,
   `buytime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `cardnum` int(16) NOT NULL,
+  `cardnum` varchar(16) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -102,7 +102,7 @@ DROP TABLE IF EXISTS `qrcode_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qrcode_info` (
-  `menu` varchar(16) NOT NULL,
+  `menu` varchar(255) NOT NULL,
   `qrcode_id` varchar(255) NOT NULL,
   PRIMARY KEY (`menu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
