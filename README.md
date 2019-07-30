@@ -11,7 +11,7 @@ node.js 8.11.3
 mysql
 
 클라우드 환경
-Paas-Ta
+Paas-Ta (적용예정)
 
 ```
 
