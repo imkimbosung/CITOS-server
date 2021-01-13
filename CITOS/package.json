@@ -19,7 +19,7 @@
     "flash": "^1.1.0",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
-    "jquery-validation": "^1.17.0",
+    "jquery-validation": "^1.19.3",
     "morgan": "~1.9.1",
     "mysql": "^2.16.0",
     "npm": "^6.4.1",
